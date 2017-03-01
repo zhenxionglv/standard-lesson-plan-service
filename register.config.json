@@ -1,0 +1,32 @@
+{
+  "base-service": {
+    "description": "standard-lesson-plan-service",
+    "arguments": ["standard_lesson_plan"],
+    "methods": [{
+      "description": "获取和发送验证码",
+      "senecaCmd": "plan_create",
+      "serviceMethod": "create",
+      "static": false
+    }, {
+      "description": "验证",
+      "senecaCmd": "plan_read",
+      "serviceMethod": "find",
+      "static": false
+    }, {
+      "description": "验证",
+      "senecaCmd": "plan_read_id",
+      "serviceMethod": "findById",
+      "static": false
+    }, {
+      "description": "验证",
+      "senecaCmd": "plan_update",
+      "serviceMethod": "update",
+      "static": false
+    }, {
+      "description": "验证",
+      "senecaCmd": "plan_delete",
+      "serviceMethod": "delete",
+      "static": false
+    }]
+  }
+}
