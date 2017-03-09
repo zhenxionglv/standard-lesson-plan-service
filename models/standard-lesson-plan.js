@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
   title: String,
-  category: String,
+  num: String,
   target: String,
+  grade: String,
   method: String,
   createAt: Date,
   updateAt: Date,
