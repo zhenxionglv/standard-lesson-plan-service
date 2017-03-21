@@ -6,7 +6,6 @@ class Service {
   }
   // 创建
   create(msg, done) {
-    // 创建
     return new this.Model(msg.data)
       .save()
       .then((data) => {
@@ -14,7 +13,7 @@ class Service {
       }).catch(done);
   }
 
-  // 通过id查询指定角色
+  // 通过id查询
   findById(msg, done) {
     const id = msg.data.id;
     return this.Model.findById(id).then((result) => {
@@ -26,17 +25,31 @@ class Service {
     });
   }
 
-  // 查询角色
+  // 查询
   find(msg, done) {
     const filters = msg.data.filters || {};
-    const sort = msg.data.sort || {};
+    const sort = msg.data.sort || { updatedAt: -1 };
+    const skip = msg.data.skip || 0;
+    const limit = msg.data.limit || 20;
     return this.Model
-      .find(filters) // 条件
+      .find(filters) // 条件,过滤密码相关字段
       .sort(sort) // 排序
+      .limit(limit) // 单页返回数量
+      .skip(skip) // 略过数据条数
       .then(result => done(null, { success: true, msg: '获取成功', data: result }))
       .catch(done);
   }
-  // 更新角色信息
+
+  // 获取数量
+  count(msg, done) {
+    const filters = msg.data.filters || {};
+    return this.Model
+      .count(filters)
+      .then(result => done(null, { success: true, msg: '获取成功', data: result }))
+      .catch(done);
+  }
+
+  // 更新
   update(msg, done) {
     const roleId = msg.data.id;
     const data = msg.data;
@@ -51,7 +64,7 @@ class Service {
         return done(null, { success: true, msg: '修改成功', data: result });
       }).catch(done);
   }
-// 删除角色信息
+// 删除
   delete(msg, done) {
     const id = msg.data.id;
     return this.Model
