@@ -8,7 +8,12 @@ const schema = new Schema({
   grade: String, // 年级
   method: String, // 教学组织与方法
   createAt: { type: Date, default: new Date() }, // 创建时间
-  createBy: String, //创建人：运营帐号id
+  createBy: String, // 创建人：运营帐号id
+  level: Number, // 水平
+  lessonContent: Number, // 课堂内容
+  intensity: Number, // 强度
+  equipment: String, // 器材
+  keyPoint: Number, // 要点
 })
 
 module.exports = mongoose.model('standard_lesson_plan', schema);
