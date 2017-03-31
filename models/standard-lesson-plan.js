@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const moment = require('moment');
 
 const schema = new Schema({
   title: String, // 标题
+  num: { type: String, default: moment().format('YYYYMMDDHHmmssSSS') },
   target: String, // 教学内容与目标
   category: String, // 运动分类id
   grade: String, // 年级
