@@ -19,6 +19,7 @@ const schema = new Schema({
 })
 
 function numPlugin(schm) {
+  schm.add({ num: String });
   schm.pre('save', function (next) {
     if (this.isNew) {
       this.num = moment().format('YYYYMMDDHHmmssSSS');
