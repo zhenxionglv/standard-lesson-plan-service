@@ -13,7 +13,8 @@ const schema = new Schema({
   lessonContent: Number, // 课堂内容
   intensity: Number, // 强度
   equipment: String, // 器材
-  keyPoint: Number, // 要点
+  keyPoint: String, // 要点
+  duration: Number, // 时长
 })
 
 module.exports = mongoose.model('standard_lesson_plan', schema);
