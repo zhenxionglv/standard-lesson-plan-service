@@ -11,9 +11,9 @@ const schema = new Schema({
   method: String, // 教学组织与方法
   createAt: { type: Date, default: new Date() }, // 创建时间
   createBy: String, // 创建人：运营帐号id
-  level: Number, // 水平
-  lessonContent: Number, // 课堂内容
-  intensity: Number, // 强度
+  level: String, // 水平
+  lessonContent: String, // 课堂内容
+  intensity: String, // 强度
   equipment: String, // 器材
   keyPoint: String, // 要点
   duration: Number, // 时长
