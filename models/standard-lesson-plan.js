@@ -4,7 +4,6 @@ const moment = require('moment');
 
 const schema = new Schema({
   title: String, // 标题
-  num: { type: String, default: moment().format('YYYYMMDDHHmmssSSS') },
   target: String, // 教学内容与目标
   category: String, // 运动分类id
   grade: String, // 年级
@@ -18,5 +17,16 @@ const schema = new Schema({
   keyPoint: String, // 要点
   duration: Number, // 时长
 })
+
+function numPlugin(schm) {
+  schm.pre('save', function (next) {
+    if (this.isNew) {
+      this.num = moment().format('YYYYMMDDHHmmssSSS');
+    }
+    next();
+  });
+}
+
+schema.plugin(numPlugin);
 
 module.exports = mongoose.model('standard_lesson_plan', schema);
