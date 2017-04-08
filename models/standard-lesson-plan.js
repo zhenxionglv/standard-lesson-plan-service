@@ -8,7 +8,7 @@ const schema = new Schema({
   category: String, // 运动分类id
   grade: String, // 年级
   method: String, // 教学组织与方法
-  createAt: { type: Date, default: new Date() }, // 创建时间
+  createAt: { type: Date, default: Date.now }, // 创建时间
   createBy: String, // 创建人：运营帐号id
   level: String, // 水平
   lessonContent: String, // 课堂内容
