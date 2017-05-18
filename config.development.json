@@ -3,6 +3,14 @@
   "senecaLogLevel": "none",
   "role": "standard-lesson-plan",
   "senecaPort": 10016,
+  "consul": {
+    "host": "127.0.0.1",
+    "port": 8500,
+    "name": "standard-lesson-plan",
+    "tags": ["standard-lesson-plan"],
+    "address": "127.0.0.1",
+    "servicePort": 10016
+  },
   "logger": {
     "consoleLevel": 4,
     "fileLevel": 1,
